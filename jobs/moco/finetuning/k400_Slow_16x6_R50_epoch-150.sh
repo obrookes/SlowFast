@@ -7,7 +7,7 @@
 #SBATCH --partition=devel
 #SBATCH --time=0-00:10:00
 #SBATCH --mem=32GB
-#SBATCH --job-name=epoch-50_k400
+#SBATCH --job-name=moco_ft_k400_epoch-150
 #SBATCH --output=%x-%j.out
 
 module load cuda/11.2
@@ -19,5 +19,4 @@ cd ~/SlowFast
 
 export PYTHONWARNINGS="ignore"
 
-python tools/run_net.py --cfg configs/contrastive_ssl/MoCo/finetuning/k400/linear_k400_Slow_8x8_R50_epoch-50.yaml
-
+python tools/run_net.py --cfg configs/contrastive_ssl/MoCo/finetuning/k400/k400_Slow_16x6_R50_epoch-150.yaml

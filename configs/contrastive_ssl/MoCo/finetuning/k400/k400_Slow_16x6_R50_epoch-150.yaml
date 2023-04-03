@@ -48,4 +48,4 @@ DATA_LOADER:
 NUM_GPUS: 8
 NUM_SHARDS: 1
 RNG_SEED: 0
-OUTPUT_DIR: checkpoints/ssl/moco/finetuning/k400/epoch_150
+OUTPUT_DIR: checkpoints/ssl/mocov3/finetuning/k400/epoch_150
