@@ -1,0 +1,1009 @@
+	CUDA-11.2 loaded
+
+config files: ['configs/contrastive_ssl/MoCo_SlowR50_FullScene_16x24.yaml']
+[04/03 10:37:46][INFO] train_net.py:  536: Train with config:
+[04/03 10:37:46][INFO] train_net.py:  537: {'AUG': {'AA_TYPE': 'rand-m9-mstd0.5-inc1',
+         'COLOR_JITTER': 0.4,
+         'ENABLE': False,
+         'GEN_MASK_LOADER': False,
+         'INTERPOLATION': 'bicubic',
+         'MASK_FRAMES': False,
+         'MASK_RATIO': 0.0,
+         'MASK_TUBE': False,
+         'MASK_WINDOW_SIZE': [8, 7, 7],
+         'MAX_MASK_PATCHES_PER_BLOCK': None,
+         'NUM_SAMPLE': 1,
+         'RE_COUNT': 1,
+         'RE_MODE': 'pixel',
+         'RE_PROB': 0.25,
+         'RE_SPLIT': False},
+ 'AVA': {'ANNOTATION_DIR': '/mnt/vol/gfsai-flash3-east/ai-group/users/haoqifan/ava/frame_list/',
+         'BGR': False,
+         'DETECTION_SCORE_THRESH': 0.9,
+         'EXCLUSION_FILE': 'ava_val_excluded_timestamps_v2.2.csv',
+         'FRAME_DIR': '/mnt/fair-flash3-east/ava_trainval_frames.img/',
+         'FRAME_LIST_DIR': '/mnt/vol/gfsai-flash3-east/ai-group/users/haoqifan/ava/frame_list/',
+         'FULL_TEST_ON_VAL': False,
+         'GROUNDTRUTH_FILE': 'ava_val_v2.2.csv',
+         'IMG_PROC_BACKEND': 'cv2',
+         'LABEL_MAP_FILE': 'ava_action_list_v2.2_for_activitynet_2019.pbtxt',
+         'TEST_FORCE_FLIP': False,
+         'TEST_LISTS': ['val.csv'],
+         'TEST_PREDICT_BOX_LISTS': ['ava_val_predicted_boxes.csv'],
+         'TRAIN_GT_BOX_LISTS': ['ava_train_v2.2.csv'],
+         'TRAIN_LISTS': ['train.csv'],
+         'TRAIN_PCA_JITTER_ONLY': True,
+         'TRAIN_PREDICT_BOX_LISTS': [],
+         'TRAIN_USE_COLOR_AUGMENTATION': False},
+ 'BENCHMARK': CfgNode({'NUM_EPOCHS': 5, 'LOG_PERIOD': 100, 'SHUFFLE': True}),
+ 'BN': {'GLOBAL_SYNC': False,
+        'NORM_TYPE': 'batchnorm',
+        'NUM_BATCHES_PRECISE': 200,
+        'NUM_SPLITS': 1,
+        'NUM_SYNC_DEVICES': 1,
+        'USE_PRECISE_STATS': False,
+        'WEIGHT_DECAY': 0.0},
+ 'CONTRASTIVE': {'BN_MLP': False,
+                 'BN_SYNC_MLP': False,
+                 'DELTA_CLIPS_MAX': inf,
+                 'DELTA_CLIPS_MIN': -inf,
+                 'DIM': 128,
+                 'INTERP_MEMORY': False,
+                 'KNN_ON': True,
+                 'LENGTH': 5045,
+                 'LOCAL_SHUFFLE_BN': True,
+                 'MEM_TYPE': '1d',
+                 'MLP_DIM': 2048,
+                 'MOCO_MULTI_VIEW_QUEUE': True,
+                 'MOMENTUM': 0.994,
+                 'MOMENTUM_ANNEALING': True,
+                 'NUM_CLASSES_DOWNSTREAM': 400,
+                 'NUM_MLP_LAYERS': 3,
+                 'PREDICTOR_DEPTHS': [],
+                 'QUEUE_LEN': 65536,
+                 'SEQUENTIAL': True,
+                 'SIMCLR_DIST_ON': True,
+                 'SWAV_QEUE_LEN': 0,
+                 'T': 0.1,
+                 'TYPE': 'moco'},
+ 'DATA': {'COLOR_RND_GRAYSCALE': 0.2,
+          'DECODING_BACKEND': 'torchvision',
+          'DECODING_SHORT_SIZE': 256,
+          'DUMMY_LOAD': False,
+          'ENSEMBLE_METHOD': 'sum',
+          'IN22K_TRAINVAL': False,
+          'IN22k_VAL_IN1K': '',
+          'INPUT_CHANNEL_NUM': [3],
+          'INV_UNIFORM_SAMPLE': False,
+          'IN_VAL_CROP_RATIO': 0.875,
+          'LOADER_CHUNK_OVERALL_SIZE': 0,
+          'LOADER_CHUNK_SIZE': 0,
+          'MEAN': [0.45, 0.45, 0.45],
+          'MULTI_LABEL': False,
+          'NUM_FRAMES': 16,
+          'PATH_LABEL_SEPARATOR': ' ',
+          'PATH_PREFIX': '',
+          'PATH_TO_DATA_DIR': '/jmain02/home/J2AD001/wwp02/oxb63-wwp02/data/panaf_5k/annotations/kinetics',
+          'PATH_TO_PRELOAD_IMDB': '',
+          'RANDOM_FLIP': True,
+          'REVERSE_INPUT_CHANNEL': False,
+          'SAMPLING_RATE': 24,
+          'SKIP_ROWS': 0,
+          'SSL_BLUR_SIGMA_MAX': [0.0, 2.0],
+          'SSL_BLUR_SIGMA_MIN': [0.0, 0.1],
+          'SSL_COLOR_BRI_CON_SAT': [0.6, 0.6, 0.6],
+          'SSL_COLOR_HUE': 0.15,
+          'SSL_COLOR_JITTER': True,
+          'SSL_MOCOV2_AUG': True,
+          'STD': [0.225, 0.225, 0.225],
+          'TARGET_FPS': 30,
+          'TEST_CROP_SIZE': 256,
+          'TIME_DIFF_PROB': 0.0,
+          'TRAIN_CROP_NUM_SPATIAL': 1,
+          'TRAIN_CROP_NUM_TEMPORAL': 4,
+          'TRAIN_CROP_SIZE': 224,
+          'TRAIN_JITTER_ASPECT_RELATIVE': [0.75, 1.3333],
+          'TRAIN_JITTER_FPS': 0.0,
+          'TRAIN_JITTER_MOTION_SHIFT': False,
+          'TRAIN_JITTER_SCALES': [256, 320],
+          'TRAIN_JITTER_SCALES_RELATIVE': [0.2, 0.766],
+          'TRAIN_PCA_EIGVAL': [0.225, 0.224, 0.229],
+          'TRAIN_PCA_EIGVEC': [[-0.5675, 0.7192, 0.4009],
+                               [-0.5808, -0.0045, -0.814],
+                               [-0.5836, -0.6948, 0.4203]],
+          'USE_OFFSET_SAMPLING': False},
+ 'DATA_LOADER': {'ENABLE_MULTI_THREAD_DECODE': False,
+                 'NUM_WORKERS': 2,
+                 'PIN_MEMORY': True},
+ 'DEMO': {'BUFFER_SIZE': 0,
+          'CLIP_VIS_SIZE': 10,
+          'COMMON_CLASS_NAMES': ['watch (a person)',
+                                 'talk to (e.g., self, a person, a group)',
+                                 'listen to (a person)',
+                                 'touch (an object)',
+                                 'carry/hold (an object)',
+                                 'walk',
+                                 'sit',
+                                 'lie/sleep',
+                                 'bend/bow (at the waist)'],
+          'COMMON_CLASS_THRES': 0.7,
+          'DETECTRON2_CFG': 'COCO-Detection/faster_rcnn_R_50_FPN_3x.yaml',
+          'DETECTRON2_THRESH': 0.9,
+          'DETECTRON2_WEIGHTS': 'detectron2://COCO-Detection/faster_rcnn_R_50_FPN_3x/137849458/model_final_280758.pkl',
+          'DISPLAY_HEIGHT': 0,
+          'DISPLAY_WIDTH': 0,
+          'ENABLE': False,
+          'FPS': 30,
+          'GT_BOXES': '',
+          'INPUT_FORMAT': 'BGR',
+          'INPUT_VIDEO': '',
+          'LABEL_FILE_PATH': '',
+          'NUM_CLIPS_SKIP': 0,
+          'NUM_VIS_INSTANCES': 2,
+          'OUTPUT_FILE': '',
+          'OUTPUT_FPS': -1,
+          'PREDS_BOXES': '',
+          'SLOWMO': 1,
+          'STARTING_SECOND': 900,
+          'THREAD_ENABLE': False,
+          'UNCOMMON_CLASS_THRES': 0.3,
+          'VIS_MODE': 'thres',
+          'WEBCAM': -1},
+ 'DETECTION': {'ALIGNED': True,
+               'ENABLE': False,
+               'ROI_XFORM_RESOLUTION': 7,
+               'SPATIAL_SCALE_FACTOR': 16},
+ 'DIST_BACKEND': 'nccl',
+ 'LOG_MODEL_INFO': True,
+ 'LOG_PERIOD': 10,
+ 'MASK': {'DECODER_DEPTH': 0,
+          'DECODER_EMBED_DIM': 512,
+          'DECODER_SEP_POS_EMBED': False,
+          'DEC_KV_KERNEL': [],
+          'DEC_KV_STRIDE': [],
+          'ENABLE': False,
+          'HEAD_TYPE': 'separate',
+          'MAE_ON': False,
+          'MAE_RND_MASK': False,
+          'NORM_PRED_PIXEL': True,
+          'PER_FRAME_MASKING': False,
+          'PRED_HOG': False,
+          'PRETRAIN_DEPTH': [15],
+          'SCALE_INIT_BY_DEPTH': False,
+          'TIME_STRIDE_LOSS': True},
+ 'MIXUP': {'ALPHA': 0.8,
+           'CUTMIX_ALPHA': 1.0,
+           'ENABLE': False,
+           'LABEL_SMOOTH_VALUE': 0.1,
+           'PROB': 1.0,
+           'SWITCH_PROB': 0.5},
+ 'MODEL': {'ACT_CHECKPOINT': False,
+           'ARCH': 'slow',
+           'DETACH_FINAL_FC': False,
+           'DROPCONNECT_RATE': 0.0,
+           'DROPOUT_RATE': 0.0,
+           'FC_INIT_STD': 0.01,
+           'FP16_ALLREDUCE': False,
+           'FROZEN_BN': False,
+           'HEAD_ACT': 'none',
+           'LOSS_FUNC': 'contrastive_loss',
+           'MODEL_NAME': 'ContrastiveModel',
+           'MULTI_PATHWAY_ARCH': ['slowfast'],
+           'NUM_CLASSES': 128,
+           'SINGLE_PATHWAY_ARCH': ['2d',
+                                   'c2d',
+                                   'i3d',
+                                   'slow',
+                                   'x3d',
+                                   'mvit',
+                                   'maskmvit']},
+ 'MULTIGRID': {'BN_BASE_SIZE': 8,
+               'DEFAULT_B': 0,
+               'DEFAULT_S': 0,
+               'DEFAULT_T': 0,
+               'EPOCH_FACTOR': 1.5,
+               'EVAL_FREQ': 3,
+               'LONG_CYCLE': False,
+               'LONG_CYCLE_FACTORS': [(0.25, 0.7071067811865476),
+                                      (0.5, 0.7071067811865476),
+                                      (0.5, 1),
+                                      (1, 1)],
+               'LONG_CYCLE_SAMPLING_RATE': 0,
+               'SHORT_CYCLE': False,
+               'SHORT_CYCLE_FACTORS': [0.5, 0.7071067811865476]},
+ 'MVIT': {'CLS_EMBED_ON': True,
+          'DEPTH': 16,
+          'DIM_MUL': [],
+          'DIM_MUL_IN_ATT': False,
+          'DROPOUT_RATE': 0.0,
+          'DROPPATH_RATE': 0.1,
+          'EMBED_DIM': 96,
+          'HEAD_INIT_SCALE': 1.0,
+          'HEAD_MUL': [],
+          'LAYER_SCALE_INIT_VALUE': 0.0,
+          'MLP_RATIO': 4.0,
+          'MODE': 'conv',
+          'NORM': 'layernorm',
+          'NORM_STEM': False,
+          'NUM_HEADS': 1,
+          'PATCH_2D': False,
+          'PATCH_KERNEL': [3, 7, 7],
+          'PATCH_PADDING': [2, 4, 4],
+          'PATCH_STRIDE': [2, 4, 4],
+          'POOL_FIRST': False,
+          'POOL_KVQ_KERNEL': None,
+          'POOL_KV_STRIDE': [],
+          'POOL_KV_STRIDE_ADAPTIVE': None,
+          'POOL_Q_STRIDE': [],
+          'QKV_BIAS': True,
+          'REL_POS_SPATIAL': False,
+          'REL_POS_TEMPORAL': False,
+          'REL_POS_ZERO_INIT': False,
+          'RESIDUAL_POOLING': False,
+          'REV': {'BUFFER_LAYERS': [],
+                  'ENABLE': False,
+                  'PRE_Q_FUSION': 'avg',
+                  'RESPATH_FUSE': 'concat',
+                  'RES_PATH': 'conv'},
+          'SEPARATE_QKV': False,
+          'SEP_POS_EMBED': False,
+          'USE_ABS_POS': True,
+          'USE_FIXED_SINCOS_POS': False,
+          'USE_MEAN_POOLING': False,
+          'ZERO_DECAY_POS_CLS': True},
+ 'NONLOCAL': {'GROUP': [[1], [1], [1], [1]],
+              'INSTANTIATION': 'dot_product',
+              'LOCATION': [[[]], [[]], [[]], [[]]],
+              'POOL': [[[1, 2, 2], [1, 2, 2]],
+                       [[1, 2, 2], [1, 2, 2]],
+                       [[1, 2, 2], [1, 2, 2]],
+                       [[1, 2, 2], [1, 2, 2]]]},
+ 'NUM_GPUS': 8,
+ 'NUM_SHARDS': 1,
+ 'OUTPUT_DIR': 'checkpoints/ssl/mocov3/scratch',
+ 'RESNET': {'DEPTH': 50,
+            'INPLACE_RELU': True,
+            'NUM_BLOCK_TEMP_KERNEL': [[3], [4], [6], [3]],
+            'NUM_GROUPS': 1,
+            'SPATIAL_DILATIONS': [[1], [1], [1], [1]],
+            'SPATIAL_STRIDES': [[1], [2], [2], [2]],
+            'STRIDE_1X1': False,
+            'TRANS_FUNC': 'bottleneck_transform',
+            'WIDTH_PER_GROUP': 64,
+            'ZERO_INIT_FINAL_BN': False,
+            'ZERO_INIT_FINAL_CONV': False},
+ 'RNG_SEED': 0,
+ 'SHARD_ID': 0,
+ 'SLOWFAST': {'ALPHA': 8,
+              'BETA_INV': 8,
+              'FUSION_CONV_CHANNEL_RATIO': 2,
+              'FUSION_KERNEL_SZ': 5},
+ 'SOLVER': {'BASE_LR': 0.1,
+            'BASE_LR_SCALE_NUM_SHARDS': True,
+            'BETAS': (0.9, 0.999),
+            'CLIP_GRAD_L2NORM': None,
+            'CLIP_GRAD_VAL': None,
+            'COSINE_AFTER_WARMUP': False,
+            'COSINE_END_LR': 0.0,
+            'DAMPENING': 0.0,
+            'GAMMA': 0.1,
+            'LARS_ON': False,
+            'LAYER_DECAY': 1.0,
+            'LRS': [],
+            'LR_POLICY': 'cosine',
+            'MAX_EPOCH': 600,
+            'MOMENTUM': 0.9,
+            'NESTEROV': True,
+            'OPTIMIZING_METHOD': 'sgd',
+            'STEPS': [],
+            'STEP_SIZE': 1,
+            'WARMUP_EPOCHS': 35.0,
+            'WARMUP_FACTOR': 0.1,
+            'WARMUP_START_LR': 0.001,
+            'WEIGHT_DECAY': 0.0001,
+            'ZERO_WD_1D_PARAM': False},
+ 'TASK': 'ssl',
+ 'TENSORBOARD': {'CATEGORIES_PATH': '',
+                 'CLASS_NAMES_PATH': '',
+                 'CONFUSION_MATRIX': {'ENABLE': False,
+                                      'FIGSIZE': [8, 8],
+                                      'SUBSET_PATH': ''},
+                 'ENABLE': False,
+                 'HISTOGRAM': {'ENABLE': False,
+                               'FIGSIZE': [8, 8],
+                               'SUBSET_PATH': '',
+                               'TOPK': 10},
+                 'LOG_DIR': '',
+                 'MODEL_VIS': {'ACTIVATIONS': False,
+                               'COLORMAP': 'Pastel2',
+                               'ENABLE': False,
+                               'GRAD_CAM': {'COLORMAP': 'viridis',
+                                            'ENABLE': True,
+                                            'LAYER_LIST': [],
+                                            'USE_TRUE_LABEL': False},
+                               'INPUT_VIDEO': False,
+                               'LAYER_LIST': [],
+                               'MODEL_WEIGHTS': False,
+                               'TOPK_PREDS': 1},
+                 'PREDICTIONS_PATH': '',
+                 'WRONG_PRED_VIS': {'ENABLE': False,
+                                    'SUBSET_PATH': '',
+                                    'TAG': 'Incorrectly classified videos.'}},
+ 'TEST': {'BATCH_SIZE': 256,
+          'CHECKPOINT_FILE_PATH': '',
+          'CHECKPOINT_TYPE': 'pytorch',
+          'DATASET': 'kinetics',
+          'ENABLE': True,
+          'NUM_ENSEMBLE_VIEWS': 10,
+          'NUM_SPATIAL_CROPS': 3,
+          'NUM_TEMPORAL_CLIPS': [],
+          'SAVE_RESULTS_PATH': ''},
+ 'TRAIN': {'AUTO_RESUME': True,
+           'BATCH_SIZE': 256,
+           'CHECKPOINT_CLEAR_NAME_PATTERN': (),
+           'CHECKPOINT_EPOCH_RESET': False,
+           'CHECKPOINT_FILE_PATH': '',
+           'CHECKPOINT_INFLATE': False,
+           'CHECKPOINT_IN_INIT': False,
+           'CHECKPOINT_PERIOD': 50,
+           'CHECKPOINT_TYPE': 'pytorch',
+           'DATASET': 'kinetics',
+           'ENABLE': True,
+           'EVAL_PERIOD': 600,
+           'KILL_LOSS_EXPLOSION_FACTOR': 0.0,
+           'MIXED_PRECISION': True},
+ 'VIS_MASK': CfgNode({'ENABLE': False}),
+ 'X3D': {'BN_LIN5': False,
+         'BOTTLENECK_FACTOR': 1.0,
+         'CHANNELWISE_3x3x3': True,
+         'DEPTH_FACTOR': 1.0,
+         'DIM_C1': 12,
+         'DIM_C5': 2048,
+         'SCALE_RES2': False,
+         'WIDTH_FACTOR': 1.0}}
+[04/03 10:37:57][INFO] misc.py:  185: Model:
+DistributedDataParallel(
+  (module): ContrastiveModel(
+    (backbone): ResNet(
+      (s1): VideoModelStem(
+        (pathway0_stem): ResNetBasicStem(
+          (conv): Conv3d(3, 64, kernel_size=(1, 7, 7), stride=(1, 2, 2), padding=(0, 3, 3), bias=False)
+          (bn): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (pool_layer): MaxPool3d(kernel_size=[1, 3, 3], stride=[1, 2, 2], padding=[0, 1, 1], dilation=1, ceil_mode=False)
+        )
+      )
+      (s2): ResStage(
+        (pathway0_res0): ResBlock(
+          (branch1): Conv3d(64, 256, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+          (branch1_bn): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (branch2): BottleneckTransform(
+            (a): Conv3d(64, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (a_bn): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (a_relu): ReLU(inplace=True)
+            (b): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+            (b_bn): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (b_relu): ReLU(inplace=True)
+            (c): Conv3d(64, 256, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (c_bn): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+        (pathway0_res1): ResBlock(
+          (branch2): BottleneckTransform(
+            (a): Conv3d(256, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (a_bn): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (a_relu): ReLU(inplace=True)
+            (b): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+            (b_bn): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (b_relu): ReLU(inplace=True)
+            (c): Conv3d(64, 256, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (c_bn): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+        (pathway0_res2): ResBlock(
+          (branch2): BottleneckTransform(
+            (a): Conv3d(256, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (a_bn): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (a_relu): ReLU(inplace=True)
+            (b): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+            (b_bn): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (b_relu): ReLU(inplace=True)
+            (c): Conv3d(64, 256, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (c_bn): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+      )
+      (pathway0_pool): MaxPool3d(kernel_size=[1, 1, 1], stride=[1, 1, 1], padding=[0, 0, 0], dilation=1, ceil_mode=False)
+      (s3): ResStage(
+        (pathway0_res0): ResBlock(
+          (branch1): Conv3d(256, 512, kernel_size=(1, 1, 1), stride=(1, 2, 2), bias=False)
+          (branch1_bn): BatchNorm3d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (branch2): BottleneckTransform(
+            (a): Conv3d(256, 128, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (a_bn): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (a_relu): ReLU(inplace=True)
+            (b): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 2, 2), padding=(0, 1, 1), bias=False)
+            (b_bn): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (b_relu): ReLU(inplace=True)
+            (c): Conv3d(128, 512, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (c_bn): BatchNorm3d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+        (pathway0_res1): ResBlock(
+          (branch2): BottleneckTransform(
+            (a): Conv3d(512, 128, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (a_bn): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (a_relu): ReLU(inplace=True)
+            (b): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+            (b_bn): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (b_relu): ReLU(inplace=True)
+            (c): Conv3d(128, 512, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (c_bn): BatchNorm3d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+        (pathway0_res2): ResBlock(
+          (branch2): BottleneckTransform(
+            (a): Conv3d(512, 128, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (a_bn): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (a_relu): ReLU(inplace=True)
+            (b): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+            (b_bn): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (b_relu): ReLU(inplace=True)
+            (c): Conv3d(128, 512, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (c_bn): BatchNorm3d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+        (pathway0_res3): ResBlock(
+          (branch2): BottleneckTransform(
+            (a): Conv3d(512, 128, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (a_bn): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (a_relu): ReLU(inplace=True)
+            (b): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+            (b_bn): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (b_relu): ReLU(inplace=True)
+            (c): Conv3d(128, 512, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (c_bn): BatchNorm3d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+      )
+      (s4): ResStage(
+        (pathway0_res0): ResBlock(
+          (branch1): Conv3d(512, 1024, kernel_size=(1, 1, 1), stride=(1, 2, 2), bias=False)
+          (branch1_bn): BatchNorm3d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (branch2): BottleneckTransform(
+            (a): Conv3d(512, 256, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), bias=False)
+            (a_bn): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (a_relu): ReLU(inplace=True)
+            (b): Conv3d(256, 256, kernel_size=(1, 3, 3), stride=(1, 2, 2), padding=(0, 1, 1), bias=False)
+            (b_bn): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (b_relu): ReLU(inplace=True)
+            (c): Conv3d(256, 1024, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (c_bn): BatchNorm3d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+        (pathway0_res1): ResBlock(
+          (branch2): BottleneckTransform(
+            (a): Conv3d(1024, 256, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), bias=False)
+            (a_bn): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (a_relu): ReLU(inplace=True)
+            (b): Conv3d(256, 256, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+            (b_bn): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (b_relu): ReLU(inplace=True)
+            (c): Conv3d(256, 1024, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (c_bn): BatchNorm3d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+        (pathway0_res2): ResBlock(
+          (branch2): BottleneckTransform(
+            (a): Conv3d(1024, 256, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), bias=False)
+            (a_bn): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (a_relu): ReLU(inplace=True)
+            (b): Conv3d(256, 256, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+            (b_bn): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (b_relu): ReLU(inplace=True)
+            (c): Conv3d(256, 1024, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (c_bn): BatchNorm3d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+        (pathway0_res3): ResBlock(
+          (branch2): BottleneckTransform(
+            (a): Conv3d(1024, 256, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), bias=False)
+            (a_bn): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (a_relu): ReLU(inplace=True)
+            (b): Conv3d(256, 256, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+            (b_bn): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (b_relu): ReLU(inplace=True)
+            (c): Conv3d(256, 1024, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (c_bn): BatchNorm3d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+        (pathway0_res4): ResBlock(
+          (branch2): BottleneckTransform(
+            (a): Conv3d(1024, 256, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), bias=False)
+            (a_bn): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (a_relu): ReLU(inplace=True)
+            (b): Conv3d(256, 256, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+            (b_bn): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (b_relu): ReLU(inplace=True)
+            (c): Conv3d(256, 1024, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (c_bn): BatchNorm3d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+        (pathway0_res5): ResBlock(
+          (branch2): BottleneckTransform(
+            (a): Conv3d(1024, 256, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), bias=False)
+            (a_bn): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (a_relu): ReLU(inplace=True)
+            (b): Conv3d(256, 256, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+            (b_bn): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (b_relu): ReLU(inplace=True)
+            (c): Conv3d(256, 1024, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (c_bn): BatchNorm3d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+      )
+      (s5): ResStage(
+        (pathway0_res0): ResBlock(
+          (branch1): Conv3d(1024, 2048, kernel_size=(1, 1, 1), stride=(1, 2, 2), bias=False)
+          (branch1_bn): BatchNorm3d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (branch2): BottleneckTransform(
+            (a): Conv3d(1024, 512, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), bias=False)
+            (a_bn): BatchNorm3d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (a_relu): ReLU(inplace=True)
+            (b): Conv3d(512, 512, kernel_size=(1, 3, 3), stride=(1, 2, 2), padding=(0, 1, 1), bias=False)
+            (b_bn): BatchNorm3d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (b_relu): ReLU(inplace=True)
+            (c): Conv3d(512, 2048, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (c_bn): BatchNorm3d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+        (pathway0_res1): ResBlock(
+          (branch2): BottleneckTransform(
+            (a): Conv3d(2048, 512, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), bias=False)
+            (a_bn): BatchNorm3d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (a_relu): ReLU(inplace=True)
+            (b): Conv3d(512, 512, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+            (b_bn): BatchNorm3d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (b_relu): ReLU(inplace=True)
+            (c): Conv3d(512, 2048, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (c_bn): BatchNorm3d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+        (pathway0_res2): ResBlock(
+          (branch2): BottleneckTransform(
+            (a): Conv3d(2048, 512, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), bias=False)
+            (a_bn): BatchNorm3d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (a_relu): ReLU(inplace=True)
+            (b): Conv3d(512, 512, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+            (b_bn): BatchNorm3d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (b_relu): ReLU(inplace=True)
+            (c): Conv3d(512, 2048, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (c_bn): BatchNorm3d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+      )
+      (head): ResNetBasicHead(
+        (predictors): ModuleList()
+        (pathway0_avgpool): AdaptiveAvgPool3d(output_size=(1, 1, 1))
+        (projection): MLPHead(
+          (projection): Sequential(
+            (0): Linear(in_features=2048, out_features=2048, bias=True)
+            (1): ReLU(inplace=True)
+            (2): Linear(in_features=2048, out_features=2048, bias=True)
+            (3): ReLU(inplace=True)
+            (4): Linear(in_features=2048, out_features=128, bias=True)
+          )
+        )
+      )
+    )
+    (l2_norm): Normalize()
+    (nce_loss_fun): ContrastiveLoss()
+    (softmax): Softmax(dim=1)
+    (backbone_hist): ResNet(
+      (s1): VideoModelStem(
+        (pathway0_stem): ResNetBasicStem(
+          (conv): Conv3d(3, 64, kernel_size=(1, 7, 7), stride=(1, 2, 2), padding=(0, 3, 3), bias=False)
+          (bn): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (pool_layer): MaxPool3d(kernel_size=[1, 3, 3], stride=[1, 2, 2], padding=[0, 1, 1], dilation=1, ceil_mode=False)
+        )
+      )
+      (s2): ResStage(
+        (pathway0_res0): ResBlock(
+          (branch1): Conv3d(64, 256, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+          (branch1_bn): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (branch2): BottleneckTransform(
+            (a): Conv3d(64, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (a_bn): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (a_relu): ReLU(inplace=True)
+            (b): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+            (b_bn): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (b_relu): ReLU(inplace=True)
+            (c): Conv3d(64, 256, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (c_bn): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+        (pathway0_res1): ResBlock(
+          (branch2): BottleneckTransform(
+            (a): Conv3d(256, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (a_bn): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (a_relu): ReLU(inplace=True)
+            (b): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+            (b_bn): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (b_relu): ReLU(inplace=True)
+            (c): Conv3d(64, 256, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (c_bn): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+        (pathway0_res2): ResBlock(
+          (branch2): BottleneckTransform(
+            (a): Conv3d(256, 64, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (a_bn): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (a_relu): ReLU(inplace=True)
+            (b): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+            (b_bn): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (b_relu): ReLU(inplace=True)
+            (c): Conv3d(64, 256, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (c_bn): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+      )
+      (pathway0_pool): MaxPool3d(kernel_size=[1, 1, 1], stride=[1, 1, 1], padding=[0, 0, 0], dilation=1, ceil_mode=False)
+      (s3): ResStage(
+        (pathway0_res0): ResBlock(
+          (branch1): Conv3d(256, 512, kernel_size=(1, 1, 1), stride=(1, 2, 2), bias=False)
+          (branch1_bn): BatchNorm3d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (branch2): BottleneckTransform(
+            (a): Conv3d(256, 128, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (a_bn): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (a_relu): ReLU(inplace=True)
+            (b): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 2, 2), padding=(0, 1, 1), bias=False)
+            (b_bn): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (b_relu): ReLU(inplace=True)
+            (c): Conv3d(128, 512, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (c_bn): BatchNorm3d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+        (pathway0_res1): ResBlock(
+          (branch2): BottleneckTransform(
+            (a): Conv3d(512, 128, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (a_bn): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (a_relu): ReLU(inplace=True)
+            (b): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+            (b_bn): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (b_relu): ReLU(inplace=True)
+            (c): Conv3d(128, 512, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (c_bn): BatchNorm3d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+        (pathway0_res2): ResBlock(
+          (branch2): BottleneckTransform(
+            (a): Conv3d(512, 128, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (a_bn): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (a_relu): ReLU(inplace=True)
+            (b): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+            (b_bn): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (b_relu): ReLU(inplace=True)
+            (c): Conv3d(128, 512, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (c_bn): BatchNorm3d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+        (pathway0_res3): ResBlock(
+          (branch2): BottleneckTransform(
+            (a): Conv3d(512, 128, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (a_bn): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (a_relu): ReLU(inplace=True)
+            (b): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+            (b_bn): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (b_relu): ReLU(inplace=True)
+            (c): Conv3d(128, 512, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (c_bn): BatchNorm3d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+      )
+      (s4): ResStage(
+        (pathway0_res0): ResBlock(
+          (branch1): Conv3d(512, 1024, kernel_size=(1, 1, 1), stride=(1, 2, 2), bias=False)
+          (branch1_bn): BatchNorm3d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (branch2): BottleneckTransform(
+            (a): Conv3d(512, 256, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), bias=False)
+            (a_bn): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (a_relu): ReLU(inplace=True)
+            (b): Conv3d(256, 256, kernel_size=(1, 3, 3), stride=(1, 2, 2), padding=(0, 1, 1), bias=False)
+            (b_bn): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (b_relu): ReLU(inplace=True)
+            (c): Conv3d(256, 1024, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (c_bn): BatchNorm3d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+        (pathway0_res1): ResBlock(
+          (branch2): BottleneckTransform(
+            (a): Conv3d(1024, 256, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), bias=False)
+            (a_bn): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (a_relu): ReLU(inplace=True)
+            (b): Conv3d(256, 256, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+            (b_bn): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (b_relu): ReLU(inplace=True)
+            (c): Conv3d(256, 1024, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (c_bn): BatchNorm3d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+        (pathway0_res2): ResBlock(
+          (branch2): BottleneckTransform(
+            (a): Conv3d(1024, 256, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), bias=False)
+            (a_bn): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (a_relu): ReLU(inplace=True)
+            (b): Conv3d(256, 256, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+            (b_bn): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (b_relu): ReLU(inplace=True)
+            (c): Conv3d(256, 1024, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (c_bn): BatchNorm3d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+        (pathway0_res3): ResBlock(
+          (branch2): BottleneckTransform(
+            (a): Conv3d(1024, 256, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), bias=False)
+            (a_bn): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (a_relu): ReLU(inplace=True)
+            (b): Conv3d(256, 256, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+            (b_bn): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (b_relu): ReLU(inplace=True)
+            (c): Conv3d(256, 1024, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (c_bn): BatchNorm3d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+        (pathway0_res4): ResBlock(
+          (branch2): BottleneckTransform(
+            (a): Conv3d(1024, 256, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), bias=False)
+            (a_bn): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (a_relu): ReLU(inplace=True)
+            (b): Conv3d(256, 256, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+            (b_bn): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (b_relu): ReLU(inplace=True)
+            (c): Conv3d(256, 1024, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (c_bn): BatchNorm3d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+        (pathway0_res5): ResBlock(
+          (branch2): BottleneckTransform(
+            (a): Conv3d(1024, 256, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), bias=False)
+            (a_bn): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (a_relu): ReLU(inplace=True)
+            (b): Conv3d(256, 256, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+            (b_bn): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (b_relu): ReLU(inplace=True)
+            (c): Conv3d(256, 1024, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (c_bn): BatchNorm3d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+      )
+      (s5): ResStage(
+        (pathway0_res0): ResBlock(
+          (branch1): Conv3d(1024, 2048, kernel_size=(1, 1, 1), stride=(1, 2, 2), bias=False)
+          (branch1_bn): BatchNorm3d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (branch2): BottleneckTransform(
+            (a): Conv3d(1024, 512, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), bias=False)
+            (a_bn): BatchNorm3d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (a_relu): ReLU(inplace=True)
+            (b): Conv3d(512, 512, kernel_size=(1, 3, 3), stride=(1, 2, 2), padding=(0, 1, 1), bias=False)
+            (b_bn): BatchNorm3d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (b_relu): ReLU(inplace=True)
+            (c): Conv3d(512, 2048, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (c_bn): BatchNorm3d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+        (pathway0_res1): ResBlock(
+          (branch2): BottleneckTransform(
+            (a): Conv3d(2048, 512, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), bias=False)
+            (a_bn): BatchNorm3d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (a_relu): ReLU(inplace=True)
+            (b): Conv3d(512, 512, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+            (b_bn): BatchNorm3d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (b_relu): ReLU(inplace=True)
+            (c): Conv3d(512, 2048, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (c_bn): BatchNorm3d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+        (pathway0_res2): ResBlock(
+          (branch2): BottleneckTransform(
+            (a): Conv3d(2048, 512, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), bias=False)
+            (a_bn): BatchNorm3d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (a_relu): ReLU(inplace=True)
+            (b): Conv3d(512, 512, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+            (b_bn): BatchNorm3d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (b_relu): ReLU(inplace=True)
+            (c): Conv3d(512, 2048, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (c_bn): BatchNorm3d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+      )
+      (head): ResNetBasicHead(
+        (predictors): ModuleList()
+        (pathway0_avgpool): AdaptiveAvgPool3d(output_size=(1, 1, 1))
+        (projection): MLPHead(
+          (projection): Sequential(
+            (0): Linear(in_features=2048, out_features=2048, bias=True)
+            (1): ReLU(inplace=True)
+            (2): Linear(in_features=2048, out_features=2048, bias=True)
+            (3): ReLU(inplace=True)
+            (4): Linear(in_features=2048, out_features=128, bias=True)
+          )
+        )
+      )
+    )
+    (knn_mem): Memory(
+      (l2_norm): Normalize()
+      (l2_norm2d): Normalize()
+    )
+  )
+)
+[04/03 10:37:57][INFO] misc.py:  187: Params: 80,578,944
+[04/03 10:37:57][INFO] misc.py:  188: Mem: 0.6714010238647461 MB
+[04/03 10:38:32][WARNING] jit_analysis.py:  499: Unsupported operator aten::max_pool3d encountered 2 time(s)
+[04/03 10:38:32][WARNING] jit_analysis.py:  499: Unsupported operator aten::add encountered 16 time(s)
+[04/03 10:38:32][WARNING] jit_analysis.py:  499: Unsupported operator aten::adaptive_avg_pool3d encountered 1 time(s)
+[04/03 10:38:32][WARNING] jit_analysis.py:  511: The following submodules of the model were never called during the trace of the graph. They may be unused, or they were accessed by direct calls to .forward() or via other python methods. In the latter case they will have zeros for statistics, though their statistics will still contribute to their parent calling module.
+module.backbone_hist, module.backbone_hist.head, module.backbone_hist.head.pathway0_avgpool, module.backbone_hist.head.projection, module.backbone_hist.head.projection.projection, module.backbone_hist.head.projection.projection.0, module.backbone_hist.head.projection.projection.1, module.backbone_hist.head.projection.projection.2, module.backbone_hist.head.projection.projection.3, module.backbone_hist.head.projection.projection.4, module.backbone_hist.pathway0_pool, module.backbone_hist.s1, module.backbone_hist.s1.pathway0_stem, module.backbone_hist.s1.pathway0_stem.bn, module.backbone_hist.s1.pathway0_stem.conv, module.backbone_hist.s1.pathway0_stem.pool_layer, module.backbone_hist.s1.pathway0_stem.relu, module.backbone_hist.s2, module.backbone_hist.s2.pathway0_res0, module.backbone_hist.s2.pathway0_res0.branch1, module.backbone_hist.s2.pathway0_res0.branch1_bn, module.backbone_hist.s2.pathway0_res0.branch2, module.backbone_hist.s2.pathway0_res0.branch2.a, module.backbone_hist.s2.pathway0_res0.branch2.a_bn, module.backbone_hist.s2.pathway0_res0.branch2.a_relu, module.backbone_hist.s2.pathway0_res0.branch2.b, module.backbone_hist.s2.pathway0_res0.branch2.b_bn, module.backbone_hist.s2.pathway0_res0.branch2.b_relu, module.backbone_hist.s2.pathway0_res0.branch2.c, module.backbone_hist.s2.pathway0_res0.branch2.c_bn, module.backbone_hist.s2.pathway0_res0.relu, module.backbone_hist.s2.pathway0_res1, module.backbone_hist.s2.pathway0_res1.branch2, module.backbone_hist.s2.pathway0_res1.branch2.a, module.backbone_hist.s2.pathway0_res1.branch2.a_bn, module.backbone_hist.s2.pathway0_res1.branch2.a_relu, module.backbone_hist.s2.pathway0_res1.branch2.b, module.backbone_hist.s2.pathway0_res1.branch2.b_bn, module.backbone_hist.s2.pathway0_res1.branch2.b_relu, module.backbone_hist.s2.pathway0_res1.branch2.c, module.backbone_hist.s2.pathway0_res1.branch2.c_bn, module.backbone_hist.s2.pathway0_res1.relu, module.backbone_hist.s2.pathway0_res2, module.backbone_hist.s2.pathway0_res2.branch2, module.backbone_hist.s2.pathway0_res2.branch2.a, module.backbone_hist.s2.pathway0_res2.branch2.a_bn, module.backbone_hist.s2.pathway0_res2.branch2.a_relu, module.backbone_hist.s2.pathway0_res2.branch2.b, module.backbone_hist.s2.pathway0_res2.branch2.b_bn, module.backbone_hist.s2.pathway0_res2.branch2.b_relu, module.backbone_hist.s2.pathway0_res2.branch2.c, module.backbone_hist.s2.pathway0_res2.branch2.c_bn, module.backbone_hist.s2.pathway0_res2.relu, module.backbone_hist.s3, module.backbone_hist.s3.pathway0_res0, module.backbone_hist.s3.pathway0_res0.branch1, module.backbone_hist.s3.pathway0_res0.branch1_bn, module.backbone_hist.s3.pathway0_res0.branch2, module.backbone_hist.s3.pathway0_res0.branch2.a, module.backbone_hist.s3.pathway0_res0.branch2.a_bn, module.backbone_hist.s3.pathway0_res0.branch2.a_relu, module.backbone_hist.s3.pathway0_res0.branch2.b, module.backbone_hist.s3.pathway0_res0.branch2.b_bn, module.backbone_hist.s3.pathway0_res0.branch2.b_relu, module.backbone_hist.s3.pathway0_res0.branch2.c, module.backbone_hist.s3.pathway0_res0.branch2.c_bn, module.backbone_hist.s3.pathway0_res0.relu, module.backbone_hist.s3.pathway0_res1, module.backbone_hist.s3.pathway0_res1.branch2, module.backbone_hist.s3.pathway0_res1.branch2.a, module.backbone_hist.s3.pathway0_res1.branch2.a_bn, module.backbone_hist.s3.pathway0_res1.branch2.a_relu, module.backbone_hist.s3.pathway0_res1.branch2.b, module.backbone_hist.s3.pathway0_res1.branch2.b_bn, module.backbone_hist.s3.pathway0_res1.branch2.b_relu, module.backbone_hist.s3.pathway0_res1.branch2.c, module.backbone_hist.s3.pathway0_res1.branch2.c_bn, module.backbone_hist.s3.pathway0_res1.relu, module.backbone_hist.s3.pathway0_res2, module.backbone_hist.s3.pathway0_res2.branch2, module.backbone_hist.s3.pathway0_res2.branch2.a, module.backbone_hist.s3.pathway0_res2.branch2.a_bn, module.backbone_hist.s3.pathway0_res2.branch2.a_relu, module.backbone_hist.s3.pathway0_res2.branch2.b, module.backbone_hist.s3.pathway0_res2.branch2.b_bn, module.backbone_hist.s3.pathway0_res2.branch2.b_relu, module.backbone_hist.s3.pathway0_res2.branch2.c, module.backbone_hist.s3.pathway0_res2.branch2.c_bn, module.backbone_hist.s3.pathway0_res2.relu, module.backbone_hist.s3.pathway0_res3, module.backbone_hist.s3.pathway0_res3.branch2, module.backbone_hist.s3.pathway0_res3.branch2.a, module.backbone_hist.s3.pathway0_res3.branch2.a_bn, module.backbone_hist.s3.pathway0_res3.branch2.a_relu, module.backbone_hist.s3.pathway0_res3.branch2.b, module.backbone_hist.s3.pathway0_res3.branch2.b_bn, module.backbone_hist.s3.pathway0_res3.branch2.b_relu, module.backbone_hist.s3.pathway0_res3.branch2.c, module.backbone_hist.s3.pathway0_res3.branch2.c_bn, module.backbone_hist.s3.pathway0_res3.relu, module.backbone_hist.s4, module.backbone_hist.s4.pathway0_res0, module.backbone_hist.s4.pathway0_res0.branch1, module.backbone_hist.s4.pathway0_res0.branch1_bn, module.backbone_hist.s4.pathway0_res0.branch2, module.backbone_hist.s4.pathway0_res0.branch2.a, module.backbone_hist.s4.pathway0_res0.branch2.a_bn, module.backbone_hist.s4.pathway0_res0.branch2.a_relu, module.backbone_hist.s4.pathway0_res0.branch2.b, module.backbone_hist.s4.pathway0_res0.branch2.b_bn, module.backbone_hist.s4.pathway0_res0.branch2.b_relu, module.backbone_hist.s4.pathway0_res0.branch2.c, module.backbone_hist.s4.pathway0_res0.branch2.c_bn, module.backbone_hist.s4.pathway0_res0.relu, module.backbone_hist.s4.pathway0_res1, module.backbone_hist.s4.pathway0_res1.branch2, module.backbone_hist.s4.pathway0_res1.branch2.a, module.backbone_hist.s4.pathway0_res1.branch2.a_bn, module.backbone_hist.s4.pathway0_res1.branch2.a_relu, module.backbone_hist.s4.pathway0_res1.branch2.b, module.backbone_hist.s4.pathway0_res1.branch2.b_bn, module.backbone_hist.s4.pathway0_res1.branch2.b_relu, module.backbone_hist.s4.pathway0_res1.branch2.c, module.backbone_hist.s4.pathway0_res1.branch2.c_bn, module.backbone_hist.s4.pathway0_res1.relu, module.backbone_hist.s4.pathway0_res2, module.backbone_hist.s4.pathway0_res2.branch2, module.backbone_hist.s4.pathway0_res2.branch2.a, module.backbone_hist.s4.pathway0_res2.branch2.a_bn, module.backbone_hist.s4.pathway0_res2.branch2.a_relu, module.backbone_hist.s4.pathway0_res2.branch2.b, module.backbone_hist.s4.pathway0_res2.branch2.b_bn, module.backbone_hist.s4.pathway0_res2.branch2.b_relu, module.backbone_hist.s4.pathway0_res2.branch2.c, module.backbone_hist.s4.pathway0_res2.branch2.c_bn, module.backbone_hist.s4.pathway0_res2.relu, module.backbone_hist.s4.pathway0_res3, module.backbone_hist.s4.pathway0_res3.branch2, module.backbone_hist.s4.pathway0_res3.branch2.a, module.backbone_hist.s4.pathway0_res3.branch2.a_bn, module.backbone_hist.s4.pathway0_res3.branch2.a_relu, module.backbone_hist.s4.pathway0_res3.branch2.b, module.backbone_hist.s4.pathway0_res3.branch2.b_bn, module.backbone_hist.s4.pathway0_res3.branch2.b_relu, module.backbone_hist.s4.pathway0_res3.branch2.c, module.backbone_hist.s4.pathway0_res3.branch2.c_bn, module.backbone_hist.s4.pathway0_res3.relu, module.backbone_hist.s4.pathway0_res4, module.backbone_hist.s4.pathway0_res4.branch2, module.backbone_hist.s4.pathway0_res4.branch2.a, module.backbone_hist.s4.pathway0_res4.branch2.a_bn, module.backbone_hist.s4.pathway0_res4.branch2.a_relu, module.backbone_hist.s4.pathway0_res4.branch2.b, module.backbone_hist.s4.pathway0_res4.branch2.b_bn, module.backbone_hist.s4.pathway0_res4.branch2.b_relu, module.backbone_hist.s4.pathway0_res4.branch2.c, module.backbone_hist.s4.pathway0_res4.branch2.c_bn, module.backbone_hist.s4.pathway0_res4.relu, module.backbone_hist.s4.pathway0_res5, module.backbone_hist.s4.pathway0_res5.branch2, module.backbone_hist.s4.pathway0_res5.branch2.a, module.backbone_hist.s4.pathway0_res5.branch2.a_bn, module.backbone_hist.s4.pathway0_res5.branch2.a_relu, module.backbone_hist.s4.pathway0_res5.branch2.b, module.backbone_hist.s4.pathway0_res5.branch2.b_bn, module.backbone_hist.s4.pathway0_res5.branch2.b_relu, module.backbone_hist.s4.pathway0_res5.branch2.c, module.backbone_hist.s4.pathway0_res5.branch2.c_bn, module.backbone_hist.s4.pathway0_res5.relu, module.backbone_hist.s5, module.backbone_hist.s5.pathway0_res0, module.backbone_hist.s5.pathway0_res0.branch1, module.backbone_hist.s5.pathway0_res0.branch1_bn, module.backbone_hist.s5.pathway0_res0.branch2, module.backbone_hist.s5.pathway0_res0.branch2.a, module.backbone_hist.s5.pathway0_res0.branch2.a_bn, module.backbone_hist.s5.pathway0_res0.branch2.a_relu, module.backbone_hist.s5.pathway0_res0.branch2.b, module.backbone_hist.s5.pathway0_res0.branch2.b_bn, module.backbone_hist.s5.pathway0_res0.branch2.b_relu, module.backbone_hist.s5.pathway0_res0.branch2.c, module.backbone_hist.s5.pathway0_res0.branch2.c_bn, module.backbone_hist.s5.pathway0_res0.relu, module.backbone_hist.s5.pathway0_res1, module.backbone_hist.s5.pathway0_res1.branch2, module.backbone_hist.s5.pathway0_res1.branch2.a, module.backbone_hist.s5.pathway0_res1.branch2.a_bn, module.backbone_hist.s5.pathway0_res1.branch2.a_relu, module.backbone_hist.s5.pathway0_res1.branch2.b, module.backbone_hist.s5.pathway0_res1.branch2.b_bn, module.backbone_hist.s5.pathway0_res1.branch2.b_relu, module.backbone_hist.s5.pathway0_res1.branch2.c, module.backbone_hist.s5.pathway0_res1.branch2.c_bn, module.backbone_hist.s5.pathway0_res1.relu, module.backbone_hist.s5.pathway0_res2, module.backbone_hist.s5.pathway0_res2.branch2, module.backbone_hist.s5.pathway0_res2.branch2.a, module.backbone_hist.s5.pathway0_res2.branch2.a_bn, module.backbone_hist.s5.pathway0_res2.branch2.a_relu, module.backbone_hist.s5.pathway0_res2.branch2.b, module.backbone_hist.s5.pathway0_res2.branch2.b_bn, module.backbone_hist.s5.pathway0_res2.branch2.b_relu, module.backbone_hist.s5.pathway0_res2.branch2.c, module.backbone_hist.s5.pathway0_res2.branch2.c_bn, module.backbone_hist.s5.pathway0_res2.relu, module.knn_mem, module.knn_mem.l2_norm, module.knn_mem.l2_norm2d, module.l2_norm, module.nce_loss_fun, module.softmax
+[04/03 10:38:32][INFO] misc.py:  190: Flops: 83.84431718399999 G
+[04/03 10:38:32][WARNING] jit_analysis.py:  499: Unsupported operator aten::batch_norm encountered 53 time(s)
+[04/03 10:38:32][WARNING] jit_analysis.py:  499: Unsupported operator aten::max_pool3d encountered 2 time(s)
+[04/03 10:38:32][WARNING] jit_analysis.py:  499: Unsupported operator aten::add encountered 16 time(s)
+[04/03 10:38:32][WARNING] jit_analysis.py:  499: Unsupported operator aten::adaptive_avg_pool3d encountered 1 time(s)
+[04/03 10:38:32][WARNING] jit_analysis.py:  511: The following submodules of the model were never called during the trace of the graph. They may be unused, or they were accessed by direct calls to .forward() or via other python methods. In the latter case they will have zeros for statistics, though their statistics will still contribute to their parent calling module.
+module.backbone_hist, module.backbone_hist.head, module.backbone_hist.head.pathway0_avgpool, module.backbone_hist.head.projection, module.backbone_hist.head.projection.projection, module.backbone_hist.head.projection.projection.0, module.backbone_hist.head.projection.projection.1, module.backbone_hist.head.projection.projection.2, module.backbone_hist.head.projection.projection.3, module.backbone_hist.head.projection.projection.4, module.backbone_hist.pathway0_pool, module.backbone_hist.s1, module.backbone_hist.s1.pathway0_stem, module.backbone_hist.s1.pathway0_stem.bn, module.backbone_hist.s1.pathway0_stem.conv, module.backbone_hist.s1.pathway0_stem.pool_layer, module.backbone_hist.s1.pathway0_stem.relu, module.backbone_hist.s2, module.backbone_hist.s2.pathway0_res0, module.backbone_hist.s2.pathway0_res0.branch1, module.backbone_hist.s2.pathway0_res0.branch1_bn, module.backbone_hist.s2.pathway0_res0.branch2, module.backbone_hist.s2.pathway0_res0.branch2.a, module.backbone_hist.s2.pathway0_res0.branch2.a_bn, module.backbone_hist.s2.pathway0_res0.branch2.a_relu, module.backbone_hist.s2.pathway0_res0.branch2.b, module.backbone_hist.s2.pathway0_res0.branch2.b_bn, module.backbone_hist.s2.pathway0_res0.branch2.b_relu, module.backbone_hist.s2.pathway0_res0.branch2.c, module.backbone_hist.s2.pathway0_res0.branch2.c_bn, module.backbone_hist.s2.pathway0_res0.relu, module.backbone_hist.s2.pathway0_res1, module.backbone_hist.s2.pathway0_res1.branch2, module.backbone_hist.s2.pathway0_res1.branch2.a, module.backbone_hist.s2.pathway0_res1.branch2.a_bn, module.backbone_hist.s2.pathway0_res1.branch2.a_relu, module.backbone_hist.s2.pathway0_res1.branch2.b, module.backbone_hist.s2.pathway0_res1.branch2.b_bn, module.backbone_hist.s2.pathway0_res1.branch2.b_relu, module.backbone_hist.s2.pathway0_res1.branch2.c, module.backbone_hist.s2.pathway0_res1.branch2.c_bn, module.backbone_hist.s2.pathway0_res1.relu, module.backbone_hist.s2.pathway0_res2, module.backbone_hist.s2.pathway0_res2.branch2, module.backbone_hist.s2.pathway0_res2.branch2.a, module.backbone_hist.s2.pathway0_res2.branch2.a_bn, module.backbone_hist.s2.pathway0_res2.branch2.a_relu, module.backbone_hist.s2.pathway0_res2.branch2.b, module.backbone_hist.s2.pathway0_res2.branch2.b_bn, module.backbone_hist.s2.pathway0_res2.branch2.b_relu, module.backbone_hist.s2.pathway0_res2.branch2.c, module.backbone_hist.s2.pathway0_res2.branch2.c_bn, module.backbone_hist.s2.pathway0_res2.relu, module.backbone_hist.s3, module.backbone_hist.s3.pathway0_res0, module.backbone_hist.s3.pathway0_res0.branch1, module.backbone_hist.s3.pathway0_res0.branch1_bn, module.backbone_hist.s3.pathway0_res0.branch2, module.backbone_hist.s3.pathway0_res0.branch2.a, module.backbone_hist.s3.pathway0_res0.branch2.a_bn, module.backbone_hist.s3.pathway0_res0.branch2.a_relu, module.backbone_hist.s3.pathway0_res0.branch2.b, module.backbone_hist.s3.pathway0_res0.branch2.b_bn, module.backbone_hist.s3.pathway0_res0.branch2.b_relu, module.backbone_hist.s3.pathway0_res0.branch2.c, module.backbone_hist.s3.pathway0_res0.branch2.c_bn, module.backbone_hist.s3.pathway0_res0.relu, module.backbone_hist.s3.pathway0_res1, module.backbone_hist.s3.pathway0_res1.branch2, module.backbone_hist.s3.pathway0_res1.branch2.a, module.backbone_hist.s3.pathway0_res1.branch2.a_bn, module.backbone_hist.s3.pathway0_res1.branch2.a_relu, module.backbone_hist.s3.pathway0_res1.branch2.b, module.backbone_hist.s3.pathway0_res1.branch2.b_bn, module.backbone_hist.s3.pathway0_res1.branch2.b_relu, module.backbone_hist.s3.pathway0_res1.branch2.c, module.backbone_hist.s3.pathway0_res1.branch2.c_bn, module.backbone_hist.s3.pathway0_res1.relu, module.backbone_hist.s3.pathway0_res2, module.backbone_hist.s3.pathway0_res2.branch2, module.backbone_hist.s3.pathway0_res2.branch2.a, module.backbone_hist.s3.pathway0_res2.branch2.a_bn, module.backbone_hist.s3.pathway0_res2.branch2.a_relu, module.backbone_hist.s3.pathway0_res2.branch2.b, module.backbone_hist.s3.pathway0_res2.branch2.b_bn, module.backbone_hist.s3.pathway0_res2.branch2.b_relu, module.backbone_hist.s3.pathway0_res2.branch2.c, module.backbone_hist.s3.pathway0_res2.branch2.c_bn, module.backbone_hist.s3.pathway0_res2.relu, module.backbone_hist.s3.pathway0_res3, module.backbone_hist.s3.pathway0_res3.branch2, module.backbone_hist.s3.pathway0_res3.branch2.a, module.backbone_hist.s3.pathway0_res3.branch2.a_bn, module.backbone_hist.s3.pathway0_res3.branch2.a_relu, module.backbone_hist.s3.pathway0_res3.branch2.b, module.backbone_hist.s3.pathway0_res3.branch2.b_bn, module.backbone_hist.s3.pathway0_res3.branch2.b_relu, module.backbone_hist.s3.pathway0_res3.branch2.c, module.backbone_hist.s3.pathway0_res3.branch2.c_bn, module.backbone_hist.s3.pathway0_res3.relu, module.backbone_hist.s4, module.backbone_hist.s4.pathway0_res0, module.backbone_hist.s4.pathway0_res0.branch1, module.backbone_hist.s4.pathway0_res0.branch1_bn, module.backbone_hist.s4.pathway0_res0.branch2, module.backbone_hist.s4.pathway0_res0.branch2.a, module.backbone_hist.s4.pathway0_res0.branch2.a_bn, module.backbone_hist.s4.pathway0_res0.branch2.a_relu, module.backbone_hist.s4.pathway0_res0.branch2.b, module.backbone_hist.s4.pathway0_res0.branch2.b_bn, module.backbone_hist.s4.pathway0_res0.branch2.b_relu, module.backbone_hist.s4.pathway0_res0.branch2.c, module.backbone_hist.s4.pathway0_res0.branch2.c_bn, module.backbone_hist.s4.pathway0_res0.relu, module.backbone_hist.s4.pathway0_res1, module.backbone_hist.s4.pathway0_res1.branch2, module.backbone_hist.s4.pathway0_res1.branch2.a, module.backbone_hist.s4.pathway0_res1.branch2.a_bn, module.backbone_hist.s4.pathway0_res1.branch2.a_relu, module.backbone_hist.s4.pathway0_res1.branch2.b, module.backbone_hist.s4.pathway0_res1.branch2.b_bn, module.backbone_hist.s4.pathway0_res1.branch2.b_relu, module.backbone_hist.s4.pathway0_res1.branch2.c, module.backbone_hist.s4.pathway0_res1.branch2.c_bn, module.backbone_hist.s4.pathway0_res1.relu, module.backbone_hist.s4.pathway0_res2, module.backbone_hist.s4.pathway0_res2.branch2, module.backbone_hist.s4.pathway0_res2.branch2.a, module.backbone_hist.s4.pathway0_res2.branch2.a_bn, module.backbone_hist.s4.pathway0_res2.branch2.a_relu, module.backbone_hist.s4.pathway0_res2.branch2.b, module.backbone_hist.s4.pathway0_res2.branch2.b_bn, module.backbone_hist.s4.pathway0_res2.branch2.b_relu, module.backbone_hist.s4.pathway0_res2.branch2.c, module.backbone_hist.s4.pathway0_res2.branch2.c_bn, module.backbone_hist.s4.pathway0_res2.relu, module.backbone_hist.s4.pathway0_res3, module.backbone_hist.s4.pathway0_res3.branch2, module.backbone_hist.s4.pathway0_res3.branch2.a, module.backbone_hist.s4.pathway0_res3.branch2.a_bn, module.backbone_hist.s4.pathway0_res3.branch2.a_relu, module.backbone_hist.s4.pathway0_res3.branch2.b, module.backbone_hist.s4.pathway0_res3.branch2.b_bn, module.backbone_hist.s4.pathway0_res3.branch2.b_relu, module.backbone_hist.s4.pathway0_res3.branch2.c, module.backbone_hist.s4.pathway0_res3.branch2.c_bn, module.backbone_hist.s4.pathway0_res3.relu, module.backbone_hist.s4.pathway0_res4, module.backbone_hist.s4.pathway0_res4.branch2, module.backbone_hist.s4.pathway0_res4.branch2.a, module.backbone_hist.s4.pathway0_res4.branch2.a_bn, module.backbone_hist.s4.pathway0_res4.branch2.a_relu, module.backbone_hist.s4.pathway0_res4.branch2.b, module.backbone_hist.s4.pathway0_res4.branch2.b_bn, module.backbone_hist.s4.pathway0_res4.branch2.b_relu, module.backbone_hist.s4.pathway0_res4.branch2.c, module.backbone_hist.s4.pathway0_res4.branch2.c_bn, module.backbone_hist.s4.pathway0_res4.relu, module.backbone_hist.s4.pathway0_res5, module.backbone_hist.s4.pathway0_res5.branch2, module.backbone_hist.s4.pathway0_res5.branch2.a, module.backbone_hist.s4.pathway0_res5.branch2.a_bn, module.backbone_hist.s4.pathway0_res5.branch2.a_relu, module.backbone_hist.s4.pathway0_res5.branch2.b, module.backbone_hist.s4.pathway0_res5.branch2.b_bn, module.backbone_hist.s4.pathway0_res5.branch2.b_relu, module.backbone_hist.s4.pathway0_res5.branch2.c, module.backbone_hist.s4.pathway0_res5.branch2.c_bn, module.backbone_hist.s4.pathway0_res5.relu, module.backbone_hist.s5, module.backbone_hist.s5.pathway0_res0, module.backbone_hist.s5.pathway0_res0.branch1, module.backbone_hist.s5.pathway0_res0.branch1_bn, module.backbone_hist.s5.pathway0_res0.branch2, module.backbone_hist.s5.pathway0_res0.branch2.a, module.backbone_hist.s5.pathway0_res0.branch2.a_bn, module.backbone_hist.s5.pathway0_res0.branch2.a_relu, module.backbone_hist.s5.pathway0_res0.branch2.b, module.backbone_hist.s5.pathway0_res0.branch2.b_bn, module.backbone_hist.s5.pathway0_res0.branch2.b_relu, module.backbone_hist.s5.pathway0_res0.branch2.c, module.backbone_hist.s5.pathway0_res0.branch2.c_bn, module.backbone_hist.s5.pathway0_res0.relu, module.backbone_hist.s5.pathway0_res1, module.backbone_hist.s5.pathway0_res1.branch2, module.backbone_hist.s5.pathway0_res1.branch2.a, module.backbone_hist.s5.pathway0_res1.branch2.a_bn, module.backbone_hist.s5.pathway0_res1.branch2.a_relu, module.backbone_hist.s5.pathway0_res1.branch2.b, module.backbone_hist.s5.pathway0_res1.branch2.b_bn, module.backbone_hist.s5.pathway0_res1.branch2.b_relu, module.backbone_hist.s5.pathway0_res1.branch2.c, module.backbone_hist.s5.pathway0_res1.branch2.c_bn, module.backbone_hist.s5.pathway0_res1.relu, module.backbone_hist.s5.pathway0_res2, module.backbone_hist.s5.pathway0_res2.branch2, module.backbone_hist.s5.pathway0_res2.branch2.a, module.backbone_hist.s5.pathway0_res2.branch2.a_bn, module.backbone_hist.s5.pathway0_res2.branch2.a_relu, module.backbone_hist.s5.pathway0_res2.branch2.b, module.backbone_hist.s5.pathway0_res2.branch2.b_bn, module.backbone_hist.s5.pathway0_res2.branch2.b_relu, module.backbone_hist.s5.pathway0_res2.branch2.c, module.backbone_hist.s5.pathway0_res2.branch2.c_bn, module.backbone_hist.s5.pathway0_res2.relu, module.knn_mem, module.knn_mem.l2_norm, module.knn_mem.l2_norm2d, module.l2_norm, module.nce_loss_fun, module.softmax
+[04/03 10:38:32][INFO] misc.py:  191: Activations: 177.827968 M
+[04/03 10:38:32][INFO] misc.py:  196: nvidia-smi
+Mon Apr  3 10:38:32 2023       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 450.142.00   Driver Version: 450.142.00   CUDA Version: 11.0     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  Tesla V100-SXM2...  On   | 00000000:06:00.0 Off |                    0 |
+| N/A   35C    P0    47W / 163W |   3990MiB / 32510MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   1  Tesla V100-SXM2...  On   | 00000000:07:00.0 Off |                    0 |
+| N/A   37C    P0    47W / 163W |   1910MiB / 32510MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   2  Tesla V100-SXM2...  On   | 00000000:0A:00.0 Off |                    0 |
+| N/A   36C    P0    47W / 163W |   1814MiB / 32510MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   3  Tesla V100-SXM2...  On   | 00000000:0B:00.0 Off |                    0 |
+| N/A   35C    P0    47W / 163W |   1818MiB / 32510MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   4  Tesla V100-SXM2...  On   | 00000000:85:00.0 Off |                    0 |
+| N/A   36C    P0    46W / 163W |   1890MiB / 32510MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   5  Tesla V100-SXM2...  On   | 00000000:86:00.0 Off |                    0 |
+| N/A   38C    P0    48W / 163W |   1906MiB / 32510MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   6  Tesla V100-SXM2...  On   | 00000000:89:00.0 Off |                    0 |
+| N/A   37C    P0    48W / 163W |   1858MiB / 32510MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   7  Tesla V100-SXM2...  On   | 00000000:8A:00.0 Off |                    0 |
+| N/A   36C    P0    49W / 163W |   1834MiB / 32510MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A     33234      C   ...torch113_cu116/bin/python     3987MiB |
+|    1   N/A  N/A     33235      C   ...torch113_cu116/bin/python     1907MiB |
+|    2   N/A  N/A     33236      C   ...torch113_cu116/bin/python     1811MiB |
+|    3   N/A  N/A     33237      C   ...torch113_cu116/bin/python     1815MiB |
+|    4   N/A  N/A     33238      C   ...torch113_cu116/bin/python     1887MiB |
+|    5   N/A  N/A     33239      C   ...torch113_cu116/bin/python     1903MiB |
+|    6   N/A  N/A     33240      C   ...torch113_cu116/bin/python     1855MiB |
+|    7   N/A  N/A     33241      C   ...torch113_cu116/bin/python     1831MiB |
++-----------------------------------------------------------------------------+
+bn 106, non bn 59, zero 0, no grad 165
+[04/03 10:38:33][INFO] train_net.py:  552: Load from last checkpoint.
+[04/03 10:38:33][INFO] checkpoint.py:  222: Loading network weights from checkpoints/ssl/mocov3/scratch/checkpoints/ssl_checkpoint_epoch_00150.pyth.
+missing keys: []
+unexpected keys: []
+[04/03 10:38:33][INFO] kinetics.py:   93: Constructing Kinetics train...
+[04/03 10:38:33][INFO] kinetics.py:  158: Constructing kinetics dataloader (size: 5045 skip_rows 0) from /jmain02/home/J2AD001/wwp02/oxb63-wwp02/data/panaf_5k/annotations/kinetics/train.csv 
+[04/03 10:38:33][INFO] kinetics.py:   93: Constructing Kinetics val...
+[04/03 10:38:33][INFO] kinetics.py:  158: Constructing kinetics dataloader (size: 304 skip_rows 0) from /jmain02/home/J2AD001/wwp02/oxb63-wwp02/data/panaf_5k/annotations/kinetics/val.csv 
+[04/03 10:38:33][INFO] contrastive.py:  144: initializing knn labels
+[04/03 10:38:33][INFO] train_net.py:  631: Start epoch: 151
+[W reducer.cpp:1298] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[W reducer.cpp:1298] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[W reducer.cpp:1298] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[W reducer.cpp:1298] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[W reducer.cpp:1298] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[W reducer.cpp:1298] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[W reducer.cpp:1298] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[W reducer.cpp:1298] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[04/03 10:42:58][INFO] logging.py:   99: json_stats: {"_type": "train_iter_ssl", "dt": 18.06562, "dt_data": 12.23787, "dt_net": 5.82775, "epoch": "151/600", "eta": "1 day, 18:51:20", "gpu_mem": "27.08G", "grad_norm": 2.65207, "iter": "10/19", "loss": 2.28374, "lr": 0.08527, "top1_err": 56.38021, "top5_err": 32.79622}
+[04/03 10:46:47][INFO] logging.py:   99: json_stats: {"RAM": "80.81/503.30G", "_type": "train_epoch_ssl", "dt": 10.55422, "dt_data": 10.55422, "dt_net": 8.17961, "epoch": "151/600", "eta": "1 day, 1:00:37", "gpu_mem": "27.08G", "grad_norm": 2.78494, "loss": 2.28266, "lr": 0.08518, "top1_err": 54.83998, "top5_err": 31.77768}
+[04/03 10:46:47][INFO] train_net.py:  692: Epoch 150 takes 493.66s. Epochs from 150 to 150 take 493.66s in average and 493.66s in median.
+[04/03 10:46:47][INFO] train_net.py:  698: For epoch 150, each iteraction takes 25.98s in average. From epoch 150 to 150, each iteraction takes 25.98s in average.
+[04/03 10:51:14][INFO] logging.py:   99: json_stats: {"_type": "train_iter_ssl", "dt": 11.15932, "dt_data": 0.00061, "dt_net": 11.15871, "epoch": "152/600", "eta": "1 day, 2:24:48", "gpu_mem": "27.08G", "grad_norm": 3.08732, "iter": "10/19", "loss": 2.26662, "lr": 0.08508, "top1_err": 54.80143, "top5_err": 30.25716}
+[04/03 10:55:01][INFO] logging.py:   99: json_stats: {"RAM": "81.36/503.30G", "_type": "train_epoch_ssl", "dt": 1.14823, "dt_data": 1.14823, "dt_net": 35.21809, "epoch": "152/600", "eta": "2:42:53", "gpu_mem": "27.08G", "grad_norm": 3.11273, "loss": 2.25640, "lr": 0.08499, "top1_err": 53.78289, "top5_err": 30.14494}
+[04/03 10:55:01][INFO] train_net.py:  692: Epoch 151 takes 493.68s. Epochs from 150 to 151 take 493.67s in average and 493.67s in median.
+[04/03 10:55:01][INFO] train_net.py:  698: For epoch 151, each iteraction takes 25.98s in average. From epoch 150 to 151, each iteraction takes 25.98s in average.
+[04/03 10:59:22][INFO] logging.py:   99: json_stats: {"_type": "train_iter_ssl", "dt": 5.93995, "dt_data": 0.00071, "dt_net": 5.93924, "epoch": "153/600", "eta": "14:01:41", "gpu_mem": "27.08G", "grad_norm": 2.69557, "iter": "10/19", "loss": 2.26888, "lr": 0.08489, "top1_err": 53.25521, "top5_err": 30.69661}
+[04/03 11:03:07][INFO] logging.py:   99: json_stats: {"RAM": "82.90/503.30G", "_type": "train_epoch_ssl", "dt": 1.08150, "dt_data": 1.08150, "dt_net": 34.64123, "epoch": "153/600", "eta": "2:33:04", "gpu_mem": "27.09G", "grad_norm": 2.80765, "loss": 2.25953, "lr": 0.08481, "top1_err": 54.06044, "top5_err": 30.28029}
+[04/03 11:03:07][INFO] train_net.py:  692: Epoch 152 takes 486.69s. Epochs from 150 to 152 take 491.34s in average and 493.66s in median.
+[04/03 11:03:07][INFO] train_net.py:  698: For epoch 152, each iteraction takes 25.62s in average. From epoch 150 to 152, each iteraction takes 25.86s in average.
+[04/03 11:07:33][INFO] logging.py:   99: json_stats: {"_type": "train_iter_ssl", "dt": 5.95265, "dt_data": 0.00059, "dt_net": 5.95206, "epoch": "154/600", "eta": "14:01:36", "gpu_mem": "27.09G", "grad_norm": 3.02875, "iter": "10/19", "loss": 2.22306, "lr": 0.08471, "top1_err": 51.44857, "top5_err": 28.54817}
+[04/03 11:11:17][INFO] logging.py:   99: json_stats: {"RAM": "82.89/503.30G", "_type": "train_epoch_ssl", "dt": 1.19372, "dt_data": 1.19372, "dt_net": 15.16830, "epoch": "154/600", "eta": "2:48:35", "gpu_mem": "27.09G", "grad_norm": 2.70843, "loss": 2.23539, "lr": 0.08462, "top1_err": 52.05249, "top5_err": 29.40823}
+[04/03 11:11:17][INFO] train_net.py:  692: Epoch 153 takes 490.04s. Epochs from 150 to 153 take 491.02s in average and 491.85s in median.
+[04/03 11:11:17][INFO] train_net.py:  698: For epoch 153, each iteraction takes 25.79s in average. From epoch 150 to 153, each iteraction takes 25.84s in average.
+[04/03 11:15:38][INFO] logging.py:   99: json_stats: {"_type": "train_iter_ssl", "dt": 5.95602, "dt_data": 0.00082, "dt_net": 5.95520, "epoch": "155/600", "eta": "14:00:11", "gpu_mem": "27.09G", "grad_norm": 2.72446, "iter": "10/19", "loss": 2.22862, "lr": 0.08452, "top1_err": 51.30208, "top5_err": 28.10872}
+[04/03 11:19:23][INFO] logging.py:   99: json_stats: {"RAM": "82.92/503.30G", "_type": "train_epoch_ssl", "dt": 1.26156, "dt_data": 1.26156, "dt_net": 21.82549, "epoch": "155/600", "eta": "2:57:45", "gpu_mem": "27.09G", "grad_norm": 2.61453, "loss": 2.22628, "lr": 0.08443, "top1_err": 51.50767, "top5_err": 28.35800}
+[04/03 11:19:23][INFO] train_net.py:  692: Epoch 154 takes 485.12s. Epochs from 150 to 154 take 489.84s in average and 490.04s in median.
+[04/03 11:19:23][INFO] train_net.py:  698: For epoch 154, each iteraction takes 25.53s in average. From epoch 150 to 154, each iteraction takes 25.78s in average.
+[04/03 11:23:44][INFO] logging.py:   99: json_stats: {"_type": "train_iter_ssl", "dt": 5.91575, "dt_data": 0.00091, "dt_net": 5.91484, "epoch": "156/600", "eta": "13:52:38", "gpu_mem": "27.09G", "grad_norm": 2.54386, "iter": "10/19", "loss": 2.22943, "lr": 0.08433, "top1_err": 53.67838, "top5_err": 29.67122}
+[04/03 11:27:33][INFO] logging.py:   99: json_stats: {"RAM": "82.90/503.30G", "_type": "train_epoch_ssl", "dt": 2.45065, "dt_data": 2.45065, "dt_net": 23.36024, "epoch": "156/600", "eta": "5:44:33", "gpu_mem": "27.09G", "grad_norm": 3.18657, "loss": 2.23058, "lr": 0.08424, "top1_err": 53.40940, "top5_err": 29.53159}
+[04/03 11:27:33][INFO] train_net.py:  692: Epoch 155 takes 490.73s. Epochs from 150 to 155 take 489.99s in average and 490.39s in median.
+[04/03 11:27:33][INFO] train_net.py:  698: For epoch 155, each iteraction takes 25.83s in average. From epoch 150 to 155, each iteraction takes 25.79s in average.
+[04/03 11:32:14][INFO] logging.py:   99: json_stats: {"_type": "train_iter_ssl", "dt": 5.98488, "dt_data": 0.00068, "dt_net": 5.98420, "epoch": "157/600", "eta": "14:00:28", "gpu_mem": "27.09G", "grad_norm": 2.57642, "iter": "10/19", "loss": 2.22653, "lr": 0.08414, "top1_err": 52.27864, "top5_err": 28.87369}
+[04/03 11:36:00][INFO] logging.py:   99: json_stats: {"RAM": "85.45/503.30G", "_type": "train_epoch_ssl", "dt": 1.20638, "dt_data": 1.20638, "dt_net": 5.83281, "epoch": "157/600", "eta": "2:49:13", "gpu_mem": "27.09G", "grad_norm": 3.42973, "loss": 2.22062, "lr": 0.08405, "top1_err": 52.12274, "top5_err": 28.83086}
+[04/03 11:36:00][INFO] train_net.py:  692: Epoch 156 takes 506.22s. Epochs from 150 to 156 take 492.31s in average and 490.73s in median.
+[04/03 11:36:00][INFO] train_net.py:  698: For epoch 156, each iteraction takes 26.64s in average. From epoch 150 to 156, each iteraction takes 25.91s in average.
+[04/03 11:40:32][INFO] logging.py:   99: json_stats: {"_type": "train_iter_ssl", "dt": 6.01118, "dt_data": 0.00079, "dt_net": 6.01039, "epoch": "158/600", "eta": "14:02:16", "gpu_mem": "27.09G", "grad_norm": 2.72583, "iter": "10/19", "loss": 2.22628, "lr": 0.08395, "top1_err": 53.85742, "top5_err": 29.99674}
+[04/03 11:44:28][INFO] logging.py:   99: json_stats: {"RAM": "87.81/503.30G", "_type": "train_epoch_ssl", "dt": 1.11511, "dt_data": 1.11511, "dt_net": 14.19651, "epoch": "158/600", "eta": "2:36:04", "gpu_mem": "27.09G", "grad_norm": 2.62696, "loss": 2.21876, "lr": 0.08385, "top1_err": 52.53392, "top5_err": 28.87370}
+[04/03 11:44:28][INFO] train_net.py:  692: Epoch 157 takes 508.82s. Epochs from 150 to 157 take 494.37s in average and 492.20s in median.
+[04/03 11:44:28][INFO] train_net.py:  698: For epoch 157, each iteraction takes 26.78s in average. From epoch 150 to 157, each iteraction takes 26.02s in average.
+[04/03 11:48:55][INFO] logging.py:   99: json_stats: {"_type": "train_iter_ssl", "dt": 5.95689, "dt_data": 0.00107, "dt_net": 5.95582, "epoch": "159/600", "eta": "13:52:46", "gpu_mem": "27.09G", "grad_norm": 2.88987, "iter": "10/19", "loss": 2.21541, "lr": 0.08375, "top1_err": 51.70898, "top5_err": 28.75976}
+[04/03 11:52:40][INFO] logging.py:   99: json_stats: {"RAM": "87.01/503.30G", "_type": "train_epoch_ssl", "dt": 1.07224, "dt_data": 1.07224, "dt_net": 36.68578, "epoch": "159/600", "eta": "2:29:43", "gpu_mem": "27.09G", "grad_norm": 2.83720, "loss": 2.21608, "lr": 0.08366, "top1_err": 51.42715, "top5_err": 28.39741}
+[04/03 11:52:40][INFO] train_net.py:  692: Epoch 158 takes 491.98s. Epochs from 150 to 158 take 494.11s in average and 491.98s in median.
+[04/03 11:52:40][INFO] train_net.py:  698: For epoch 158, each iteraction takes 25.89s in average. From epoch 150 to 158, each iteraction takes 26.01s in average.
+[04/03 11:57:17][INFO] logging.py:   99: json_stats: {"_type": "train_iter_ssl", "dt": 5.98960, "dt_data": 0.00064, "dt_net": 5.98895, "epoch": "160/600", "eta": "13:55:26", "gpu_mem": "27.09G", "grad_norm": 3.29591, "iter": "10/19", "loss": 2.20914, "lr": 0.08356, "top1_err": 53.71094, "top5_err": 28.82487}
+[04/03 12:01:08][INFO] logging.py:   99: json_stats: {"RAM": "88.08/503.30G", "_type": "train_epoch_ssl", "dt": 1.15404, "dt_data": 1.15404, "dt_net": 18.41964, "epoch": "160/600", "eta": "2:40:47", "gpu_mem": "27.09G", "grad_norm": 2.38594, "loss": 2.20135, "lr": 0.08347, "top1_err": 52.28379, "top5_err": 27.98794}
+[04/03 12:01:08][INFO] train_net.py:  692: Epoch 159 takes 508.10s. Epochs from 150 to 159 take 495.51s in average and 492.82s in median.
+[04/03 12:01:08][INFO] train_net.py:  698: For epoch 159, each iteraction takes 26.74s in average. From epoch 150 to 159, each iteraction takes 26.08s in average.
+[04/03 12:05:37][INFO] logging.py:   99: json_stats: {"_type": "train_iter_ssl", "dt": 5.99429, "dt_data": 0.00088, "dt_net": 5.99340, "epoch": "161/600", "eta": "13:54:12", "gpu_mem": "27.09G", "grad_norm": 3.87384, "iter": "10/19", "loss": 2.19057, "lr": 0.08336, "top1_err": 51.38346, "top5_err": 27.60416}
+[04/03 12:09:24][INFO] logging.py:   99: json_stats: {"RAM": "91.36/503.30G", "_type": "train_epoch_ssl", "dt": 1.81651, "dt_data": 1.81651, "dt_net": 5.84211, "epoch": "161/600", "eta": "4:12:30", "gpu_mem": "27.09G", "grad_norm": 2.61138, "loss": 2.18942, "lr": 0.08327, "top1_err": 50.89946, "top5_err": 27.30948}
+[04/03 12:09:24][INFO] train_net.py:  692: Epoch 160 takes 495.87s. Epochs from 150 to 160 take 495.54s in average and 493.66s in median.
+[04/03 12:09:24][INFO] train_net.py:  698: For epoch 160, each iteraction takes 26.10s in average. From epoch 150 to 160, each iteraction takes 26.08s in average.
+[04/03 12:13:52][INFO] logging.py:   99: json_stats: {"_type": "train_iter_ssl", "dt": 5.96326, "dt_data": 0.00076, "dt_net": 5.96250, "epoch": "162/600", "eta": "13:47:59", "gpu_mem": "27.09G", "grad_norm": 2.51034, "iter": "10/19", "loss": 2.17770, "lr": 0.08317, "top1_err": 51.64388, "top5_err": 27.01823}
+[04/03 12:17:35][INFO] logging.py:   99: json_stats: {"RAM": "86.94/503.30G", "_type": "train_epoch_ssl", "dt": 2.15837, "dt_data": 2.15837, "dt_net": 35.12174, "epoch": "162/600", "eta": "4:59:21", "gpu_mem": "27.09G", "grad_norm": 2.77526, "loss": 2.18009, "lr": 0.08308, "top1_err": 50.29982, "top5_err": 27.04564}
+[04/03 12:17:35][INFO] train_net.py:  692: Epoch 161 takes 490.94s. Epochs from 150 to 161 take 495.16s in average and 492.82s in median.
+[04/03 12:17:35][INFO] train_net.py:  698: For epoch 161, each iteraction takes 25.84s in average. From epoch 150 to 161, each iteraction takes 26.06s in average.
