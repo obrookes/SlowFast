@@ -1007,3 +1007,4 @@ unexpected keys: []
 [04/03 12:18:05][INFO] logging.py:   99: json_stats: {"RAM": "93.84/503.30G", "_type": "train_epoch_ssl", "dt": 1.21874, "dt_data": 1.21874, "dt_net": 36.34650, "epoch": "162/600", "eta": "2:49:02", "gpu_mem": "27.09G", "grad_norm": 3.22569, "loss": 2.15005, "lr": 0.08308, "top1_err": 49.59567, "top5_err": 26.08278}
 [04/03 12:18:05][INFO] train_net.py:  692: Epoch 161 takes 488.68s. Epochs from 150 to 161 take 500.40s in average and 498.28s in median.
 [04/03 12:18:05][INFO] train_net.py:  698: For epoch 161, each iteraction takes 25.72s in average. From epoch 150 to 161, each iteraction takes 26.34s in average.
+[04/03 12:22:25][INFO] logging.py:   99: json_stats: {"_type": "train_iter_ssl", "dt": 6.00270, "dt_data": 0.00076, "dt_net": 6.00195, "epoch": "163/600", "eta": "13:51:34", "gpu_mem": "27.09G", "grad_norm": 2.71905, "iter": "10/19", "loss": 2.14965, "lr": 0.08297, "top1_err": 50.68359, "top5_err": 26.20442}
