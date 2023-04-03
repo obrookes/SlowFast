@@ -1,6 +1,0 @@
-# File types
-*.out
-
-# Directories
-out/
-__pycache__/
