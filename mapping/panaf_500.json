@@ -1,0 +1,11 @@
+{
+    "sitting": 5,
+    "walking": 8,
+    "standing": 6,
+    "climbing_down": 1,
+    "hanging": 2,
+    "interaction": 3,
+    "running": 4,
+    "sitting_on_back": 0,
+    "climbing_up": 7
+}
