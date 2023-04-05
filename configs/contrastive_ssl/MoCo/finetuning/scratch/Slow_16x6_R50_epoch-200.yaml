@@ -1,7 +1,7 @@
 TASK: ssl_eval_k400
 TRAIN:
   DATASET: kinetics
-  BATCH_SIZE: 64
+  BATCH_SIZE: 152
   EVAL_PERIOD: 20
   CHECKPOINT_PERIOD: 20
   AUTO_RESUME: True
@@ -41,11 +41,11 @@ MODEL:
 TEST:
   ENABLE: True
   DATASET: kinetics
-  BATCH_SIZE: 64
+  BATCH_SIZE: 152
 DATA_LOADER:
   NUM_WORKERS: 4
   PIN_MEMORY: True
 NUM_GPUS: 8
 NUM_SHARDS: 1
 RNG_SEED: 0
-OUTPUT_DIR: checkpoints/ssl/mocov3/finetuning/k400/epoch_200
+OUTPUT_DIR: checkpoints/ssl/mocov3/finetuning/scratch/epoch_200
