@@ -20,4 +20,3 @@ cd ~/SlowFast
 export PYTHONWARNINGS="ignore"
 
 python tools/run_net.py --cfg configs/contrastive_ssl/MoCo_K400_SlowR50_FullScene_16x24.yaml
-
