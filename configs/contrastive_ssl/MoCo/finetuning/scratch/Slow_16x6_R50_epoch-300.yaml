@@ -17,6 +17,9 @@ DATA:
   TEST_CROP_SIZE: 256
   INPUT_CHANNEL_NUM: [3]
   PATH_TO_DATA_DIR: /jmain02/home/J2AD001/wwp02/oxb63-wwp02/data/panaf_500/kinetics/annotations
+TENSORBOARD:
+  ENABLE: True
+  CLASS_NAMES_PATH: mapping/panaf_500.json
 BN:
   USE_PRECISE_STATS: False
   NUM_BATCHES_PRECISE: 50
@@ -24,7 +27,7 @@ BN:
 SOLVER:
   BASE_LR: 0.5 # for 8 gpus
   BASE_LR_SCALE_NUM_SHARDS: True
-  MAX_EPOCH: 60
+  MAX_EPOCH: 196s
   LR_POLICY: cosine
   MOMENTUM: 0.9
   WEIGHT_DECAY: 0.0 # 1e-4 default

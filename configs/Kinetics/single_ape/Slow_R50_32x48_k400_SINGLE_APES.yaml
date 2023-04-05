@@ -16,6 +16,9 @@ DATA:
   TEST_CROP_SIZE: 256
   INPUT_CHANNEL_NUM: [3]
   PATH_TO_DATA_DIR: /jmain02/home/J2AD001/wwp02/oxb63-wwp02/data/single_ape
+TENSORBOARD:
+  ENABLE: True
+  CLASS_NAMES_PATH: mapping/single_apes.json
 RESNET:
   ZERO_INIT_FINAL_BN: True
   WIDTH_PER_GROUP: 64
