@@ -7,8 +7,8 @@
 #SBATCH --partition=devel
 #SBATCH --time=0-00:10:00
 #SBATCH --mem=128GB
-#SBATCH --job-name=mvitv2_b_single_apes_k400_32x48
-#SBATCH --output=out/%x-%j.out
+#SBATCH --job-name=mvitv2_b_single-apes_32x48_k400
+#SBATCH --output=%x-%j.out
 
 
 module load cuda/11.2
