@@ -6,7 +6,7 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --partition=big
 #SBATCH --time=0-08:00:00
-#SBATCH --mem=32GB
+#SBATCH --mem=256GB
 #SBATCH --job-name=moco_ft_k400_epoch-300
 #SBATCH --output=%x-%j.out
 
