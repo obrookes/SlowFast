@@ -5,7 +5,7 @@
 #SBATCH --ntasks-per-node=8
 #SBATCH --cpus-per-task=8
 #SBATCH --partition=big
-#SBATCH --time=1-00:00:00
+#SBATCH --time=0-04:00:00
 #SBATCH --mem=32GB
 #SBATCH --job-name=maskfeat_ft_k400_epoch-300
 #SBATCH --output=%x-%j.out
