@@ -27,7 +27,7 @@ TENSORBOARD:
     ENABLE: True
   HISTOGRAM:
     ENABLE: True
-    TOP_K: 14
+    TOPK: 14
 MVIT:
   ZERO_DECAY_POS_CLS: False
   USE_ABS_POS: False
