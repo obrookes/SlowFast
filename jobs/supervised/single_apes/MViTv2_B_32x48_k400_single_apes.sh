@@ -4,8 +4,8 @@
 #SBATCH --gres=gpu:8
 #SBATCH --ntasks-per-node=8
 #SBATCH --cpus-per-task=8
-#SBATCH --partition=big
-#SBATCH --time=1-00:00:00
+#SBATCH --partition=devel
+#SBATCH --time=0-00:10:00
 #SBATCH --mem=128GB
 #SBATCH --job-name=mvitv2_b_single-apes_32x48_k400
 #SBATCH --output=%x-%j.out
