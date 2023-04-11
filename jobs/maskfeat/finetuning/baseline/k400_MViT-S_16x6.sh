@@ -6,7 +6,7 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --partition=devel
 #SBATCH --time=0-00:10:00
-#SBATCH --mem=32GB
+#SBATCH --mem=256GB
 #SBATCH --job-name=maskfeat_ft_k400_baseline
 #SBATCH --output=%x-%j.out
 

@@ -4,9 +4,9 @@
 #SBATCH --gres=gpu:8
 #SBATCH --ntasks-per-node=8
 #SBATCH --cpus-per-task=8
-#SBATCH --partition=big
-#SBATCH --time=0-04:00:00
-#SBATCH --mem=32GB
+#SBATCH --partition=devel
+#SBATCH --time=0-00:10:00
+#SBATCH --mem=256GB
 #SBATCH --job-name=maskfeat_ft_k400_epoch-300
 #SBATCH --output=%x-%j.out
 
