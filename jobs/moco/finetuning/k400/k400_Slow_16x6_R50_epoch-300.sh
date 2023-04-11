@@ -4,8 +4,8 @@
 #SBATCH --gres=gpu:8
 #SBATCH --ntasks-per-node=8
 #SBATCH --cpus-per-task=8
-#SBATCH --partition=devel
-#SBATCH --time=0-00:10:00
+#SBATCH --partition=big
+#SBATCH --time=0-08:00:00
 #SBATCH --mem=32GB
 #SBATCH --job-name=moco_ft_k400_epoch-300
 #SBATCH --output=%x-%j.out
