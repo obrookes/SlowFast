@@ -2,7 +2,7 @@ TASK: ssl_eval_k400
 TRAIN:
   DATASET: kinetics
   BATCH_SIZE: 152
-  EVAL_PERIOD: 20
+  EVAL_PERIOD: 10
   CHECKPOINT_PERIOD: 20
   AUTO_RESUME: True
   CHECKPOINT_CLEAR_NAME_PATTERN: ("backbone.",)
@@ -40,7 +40,7 @@ MODEL:
   ARCH: slow
   LOSS_FUNC: cross_entropy
   DROPOUT_RATE: 0.0
-  DETACH_FINAL_FC: True
+  DETACH_FINAL_FC: False
 TEST:
   ENABLE: True
   DATASET: kinetics

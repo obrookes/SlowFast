@@ -25,6 +25,11 @@ DATA:
 TENSORBOARD:
   ENABLE: True
   CLASS_NAMES_PATH: mapping/panaf_500.json
+  CONFUSION_MATRIX:
+    ENABLE: True
+  HISTOGRAM:
+    ENABLE: True
+    TOPK: 9
 MVIT:
   DEPTH: 16 # def 12
   NUM_HEADS: 3 # default 12 16
@@ -91,6 +96,7 @@ MODEL:
   MODEL_NAME: MViT
   LOSS_FUNC: soft_cross_entropy
   DROPOUT_RATE: 0.0
+  DETACH_FINAL_FC: False
 TEST:
   ENABLE: True
   DATASET: kinetics
