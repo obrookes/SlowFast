@@ -1,0 +1,59 @@
+TASK: ssl_eval_k400
+TRAIN:
+  DATASET: kinetics
+  BATCH_SIZE: 152
+  EVAL_PERIOD: 20
+  CHECKPOINT_PERIOD: 20
+  AUTO_RESUME: True
+  CHECKPOINT_CLEAR_NAME_PATTERN: ("backbone.",)
+  CHECKPOINT_TYPE: pytorch
+  CHECKPOINT_EPOCH_RESET: True
+  CHECKPOINT_FILE_PATH: checkpoints/ssl/mocov3/bili_rt_bud_bwi/pretraining/k400/checkpoints/ssl_checkpoint_epoch_00300.pyth
+DATA:
+  NUM_FRAMES: 16
+  SAMPLING_RATE: 6
+  TRAIN_JITTER_SCALES: [256, 320]
+  TRAIN_CROP_SIZE: 224
+  TEST_CROP_SIZE: 256
+  INPUT_CHANNEL_NUM: [3]
+  PATH_TO_DATA_DIR: /jmain02/home/J2AD001/wwp02/oxb63-wwp02/data/panaf_500/kinetics/annotations
+TENSORBOARD:
+  ENABLE: True
+  CLASS_NAMES_PATH: mapping/panaf_500.json
+  CONFUSION_MATRIX:
+    ENABLE: True
+  HISTOGRAM:
+    ENABLE: True
+    TOPK: 9
+BN:
+  USE_PRECISE_STATS: False
+  NUM_BATCHES_PRECISE: 50
+  WEIGHT_DECAY: 0.0
+SOLVER:
+  BASE_LR: 0.5 # for 8 gpus
+  BASE_LR_SCALE_NUM_SHARDS: True
+  MAX_EPOCH: 300
+  LR_POLICY: cosine
+  MOMENTUM: 0.9
+  WEIGHT_DECAY: 0.0 # 1e-4 default
+  WARMUP_EPOCHS: 8.0
+  WARMUP_START_LR: 0.0
+  OPTIMIZING_METHOD: sgd
+MODEL:
+  NUM_CLASSES: 9
+  MODEL_NAME: ResNet
+  ARCH: slow
+  LOSS_FUNC: cross_entropy
+  DROPOUT_RATE: 0.0
+  DETACH_FINAL_FC: False
+TEST:
+  ENABLE: True
+  DATASET: kinetics
+  BATCH_SIZE: 152
+DATA_LOADER:
+  NUM_WORKERS: 2
+  PIN_MEMORY: True
+NUM_GPUS: 8
+NUM_SHARDS: 1
+RNG_SEED: 0
+OUTPUT_DIR: checkpoints/ssl/mocov3/bili_rt_bud_bwi/finetuning/epoch_300
