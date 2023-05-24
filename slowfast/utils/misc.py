@@ -351,7 +351,6 @@ def plot_input_normed(
 
 
 def convert_normalized_images(tensor):
-
     tensor = tensor * 0.225
     tensor = tensor + 0.45
 
@@ -401,7 +400,7 @@ def launch_job(cfg, init_method, func, daemon=False):
         daemon (bool): The spawned processes’ daemon flag. If set to True,
             daemonic processes will be created
     """
-    if cfg.NUM_SHARDS > 1:  # and cfg.USE_SBATCH: --> sbatch srun multi-node training
+    if cfg.NUM_SHARDS >= 1:  # and cfg.USE_SBATCH: --> sbatch srun multi-node training
         import torch.distributed as dist
 
         is_slurm_job = "SLURM_JOB_ID" in os.environ
@@ -428,24 +427,6 @@ def launch_job(cfg, init_method, func, daemon=False):
 
         # Start run
         # cfg.SHARD_ID = rank
-        func(cfg=cfg)
-
-    elif cfg.NUM_GPUS > 1:  # submitit
-        torch.multiprocessing.spawn(
-            mpu.run,
-            nprocs=cfg.NUM_GPUS,
-            args=(
-                cfg.NUM_GPUS,
-                func,
-                init_method,
-                cfg.SHARD_ID,
-                cfg.NUM_SHARDS,
-                cfg.DIST_BACKEND,
-                cfg,
-            ),
-            daemon=daemon,
-        )
-    else:
         func(cfg=cfg)
 
 
